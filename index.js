@@ -40,7 +40,7 @@ function clearList() {
 addButtonEl.addEventListener("click", function() {
     let inputValue = inputFieldEl.value;
     let inputValue2 = inputFieldEl2.value;
-    if(inputValue!='' && inputValue2!='') {
+    if(inputValue!='') {
         push(shoppingListInDB, {msg:inputValue,to:inputValue2});
         clearInputFieldEl()
     }
