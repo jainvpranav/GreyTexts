@@ -9,7 +9,6 @@
     <link href="https://fonts.googteapis.com/css2?famity=Rubik:wght@398&dispIay=swap" />
     <title>Grey Texts</title>
     <link rel="stylesheet" href="./style.css">
-    <link href="./flip.min.css" rel="stylesheet">
     <link rel="apple-touch-icon" sizes="180x180" href="./wavehand/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="./wavehand/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="./wavehand/favicon-16x16.png">
@@ -21,32 +20,13 @@
         <img src="./assets/shh.png" alt="Shh">
         <p class="message">Confess your <span class="spanele">secrets</span> , share your <span class="spanele">funny</span> stories. Tell us all about your crazy <span class="spanele">incidents</span> and indulge into some <span class="spanele">juicy gossip</span> here.</p> 
         <p class="message center">Chillax your identity <span class="strike">isn't</span> recorded.</p>
-<!--         <h2 class="greytexts" style="text-align: center;">Responses out in</h2>
-        <div class="tick"
-            data-value="777600"
-            data-did-init="setupFlip" 
-            style="text-align: center;">
-            <div data-repeat="true" aria-hidden="true">
-                <span data-view="flip"></span>
-            </div>
-        </div> -->
+        <!-- <h2 class="greytexts" style="text-align: center;">Responses out in</h2> -->
         <input type="text" id="input-field" placeholder="Your thoughts here..." required>
         <input type="text" id="input-field-2" placeholder="To?" required>
         <button id="add-button">Send</button>
         <ul id="msgs">
         </ul>
     </div> 
-    <script src="./flip.min.js"></script>
     <script src="index.js" type="module"></script>
-<!--     <script>
-        function setupFlip(tick) {
-            Tick.helper.interval(function() {
-                tick.value--;
-                tick.root.setAttribute('aria-label', tick.value);
-        
-            }, 1000);
-        
-        }
-        </script> -->
 </body>
 </html>
