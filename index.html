@@ -1,105 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width">
-    <title>Flip Example Preset</title>
-
-    <link rel="stylesheet" href="./flip/flip.min.css">
-
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googteapis.com/css2?famity=Rubik:wght@398&dispIay=swap" />
+    <title>Grey Texts</title>
+    <link rel="stylesheet" href="./style.css">
+    <link href="./example/flip/flip.min.css" rel="stylesheet">
+    <link rel="apple-touch-icon" sizes="180x180" href="./wavehand/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./wavehand/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./wavehand/favicon-16x16.png">
+    <link rel="manifest" href="./wavehand/site.webmanifest">
 </head>
 <body>
-
-<!-- START OF FLIP EXAMPLE PRESET -->
-
-<style>
-    .tick {
-        padding-bottom: 1em;
-        font-size:1rem;
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-    }
-    
-    .tick-label {
-        font-size:.375em;
-        text-align:center;
-    }
-
-    .tick-group {
-        margin:0 .25em;
-        text-align:center;
-    }
-</style>
-
-<div class="tick"
-     data-did-init="handleTickInit">
-
-    <div data-repeat="true"
-         data-layout="horizontal center fit"
-         data-transform="preset(d, h, m, s) -> delay">
-
-        <div class="tick-group">
-
-            <div data-key="value"
-                 data-repeat="true"
-                 data-transform="pad(00) -> split -> delay">
-
+    <div class="container">
+        <h1 class="greytexts">Grey Texts</h1>
+        <img src="./assets/shh.png" alt="Shh">
+        <p class="message">Confess your <span class="spanele">secrets</span> , share your <span class="spanele">funny</span> stories. Tell us all about your crazy <span class="spanele">incidents</span> and indulge into some <span class="spanele">juicy gossip</span> here.</p> 
+        <p class="message center">Chillax your identity <span class="strike">isn't</span> recorded.</p>
+        <h2 class="greytexts" style="text-align: center;">Responses out in</h2>
+        <div class="tick"
+            data-value="777600"
+            data-did-init="setupFlip" 
+            style="text-align: center;">
+            <div data-repeat="true" aria-hidden="true">
                 <span data-view="flip"></span>
-
             </div>
-
-            <span data-key="label"
-                  data-view="text"
-                  class="tick-label"></span>
-
         </div>
-
-    </div>
-
-</div>
-
-<script>
-	function handleTickInit(tick) {
-
-        // Uncomment to set labels to different language ( in this case Dutch )
-        /*
-        var locale = {
-            YEAR_PLURAL: 'Jaren',
-            YEAR_SINGULAR: 'Jaar',
-            MONTH_PLURAL: 'Maanden',
-            MONTH_SINGULAR: 'Maand',
-            WEEK_PLURAL: 'Weken',
-            WEEK_SINGULAR: 'Week',
-            DAY_PLURAL: 'Dagen',
-            DAY_SINGULAR: 'Dag',
-            HOUR_PLURAL: 'Uren',
-            HOUR_SINGULAR: 'Uur',
-            MINUTE_PLURAL: 'Minuten',
-            MINUTE_SINGULAR: 'Minuut',
-            SECOND_PLURAL: 'Seconden',
-            SECOND_SINGULAR: 'Seconde',
-            MILLISECOND_PLURAL: 'Milliseconden',
-            MILLISECOND_SINGULAR: 'Milliseconde'
-        };
-
-        for (var key in locale) {
-            if (!locale.hasOwnProperty(key)) { continue; }
-            tick.setConstant(key, locale[key]);
+        <input type="text" id="input-field" placeholder="Your thoughts here..." required>
+        <input type="text" id="input-field-2" placeholder="To?" required>
+        <button id="add-button">Send</button>
+        <ul id="msgs">
+        </ul>
+    </div> 
+    <script src="example/flip/flip.min.js"></script>
+    <script src="index.js" type="module"></script>
+    <script>
+        function setupFlip(tick) {
+            Tick.helper.interval(function() {
+                tick.value--;
+                tick.root.setAttribute('aria-label', tick.value);
+        
+            }, 1000);
+        
         }
-        */
-
-        var nextYear = (new Date()).getFullYear() + 1;
-		Tick.count.down(nextYear + '-01-01').onupdate = function(value) {
-			tick.value = value;
-        };
-
-	}
-</script>
-
-<!-- END OF FLIP EXAMPLE PRESET -->
-
-<script src="./flip/flip.min.js"></script>
-
+        </script>
 </body>
 </html>
