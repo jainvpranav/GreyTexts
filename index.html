@@ -13,6 +13,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="./wavehand/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="./wavehand/favicon-16x16.png">
     <link rel="manifest" href="./wavehand/site.webmanifest">
+    <link rel="stylesheet" href="./flipclock/flip.min.css">
 </head>
 <body>
     <div class="container">
@@ -20,13 +21,32 @@
         <img src="./assets/shh.png" alt="Shh">
         <p class="message">Confess your <span class="spanele">secrets</span> , share your <span class="spanele">funny</span> stories. Tell us all about your crazy <span class="spanele">incidents</span> and indulge into some <span class="spanele">juicy gossip</span> here.</p> 
         <p class="message center">Chillax your identity <span class="strike">isn't</span> recorded.</p>
-        <!-- <h2 class="greytexts" style="text-align: center;">Responses out in</h2> -->
+        <h2 class="greytexts" style="text-align: center;">Responses out in</h2>
+        <div class="tick" data-value="1234" data-did-init="setupFlip" id="flipclk" style="text-align: center;" >
+            <div data-repeat="true" aria-hidden="true">
+            <span data-view="flip"></span>
+            </div>
+        </div>
         <input type="text" id="input-field" placeholder="Your thoughts here..." required>
-        <input type="text" id="input-field-2" placeholder="To?" >
+        <input type="text" id="input-field-2" placeholder="To?" required>
         <button id="add-button">Send</button>
         <ul id="msgs">
         </ul>
     </div> 
     <script src="index.js" type="module"></script>
+    <script src="./flipclock/flip.min.js"></script>
+    <script>
+    function setupFlip(tick) {
+    var countdownDate  = new Date("May 22, 2023 00:00:00").getTime();
+    var now = new Date().getTime();
+    var dist = countdownDate - now;
+    var sec = Math.floor(dist/1000);
+    document.getElementById("flipclk").setAttribute("data-value", sec);
+        Tick.helper.interval(function() {
+            tick.value--;
+            tick.root.setAttribute('aria-label', tick.value);
+        }, 1000);
+    }
+    </script>
 </body>
 </html>
