@@ -17,21 +17,22 @@ const inputFieldEl2 = document.getElementById("input-field-2");
 const addButtonEl = document.getElementById("add-button")
 const shoppingListEl = document.getElementById("msgs")
 
-// onValue(shoppingListInDB, function(snapshot) {
-//     if(snapshot.exists()) {
-//         let items = Object.entries(snapshot.val());
-//         clearList();
-//         // items.forEach(appendShoppingList)
-//         for(var i=0; i<items.length; i++) {
-//             let curitem = items[i];
-//             appendShoppingList(curitem);
-//         }
-//     } 
-//     else {
-//         shoppingListEl.innerHTML = "No Items here yet..."
-//     }
-    
-// })
+onValue(shoppingListInDB, function(snapshot) {
+    if(snapshot.exists()) {
+        let items = Object.entries(snapshot.val());
+        clearList();
+        // items.forEach(appendShoppingList)
+        for(var i=0; i<items.length; i++) {
+            let curitem = items[i];
+            appendShoppingList(curitem);
+        }
+        const respc = document.getElementById('resp');
+        respc.textContent = `Count: ${count}`;
+    } 
+    else {
+        shoppingListEl.innerHTML = "No Items here yet..."
+    }
+})
 
 function clearList() {
     shoppingListEl.innerHTML = ""
@@ -51,18 +52,18 @@ function clearInputFieldEl() {
     inputFieldEl2.value=""
 }
 
-// function appendShoppingList(inputValue) {
-//     let itemId = inputValue[0];
-//     let message = inputValue[1]['msg'];
-//     let to = inputValue[1]['to'];
-//     let newEl = document.createElement("li");
-//     let newdiv = document.createElement("div");
+let count=0;
+function appendShoppingList(inputValue) {
+    let itemId = inputValue[0];
+    count+=1;
+    let message = inputValue[1]['msg'];
+    let to = inputValue[1]['to'];
+    let newEl = document.createElement("li");
+    let newdiv = document.createElement("div");
+//     if(to!="")
 //     newdiv.textContent =`Dear ${to}, ${message}`;
+//     else 
+//     newdiv.textContent =`Gossip: ${message}`;
 //     newEl.appendChild(newdiv);
 //     shoppingListEl.append(newEl);
-
-//     // newEl.addEventListener("dblclick", function() {
-//     //     let location = ref(database, `GreyTexts/${itemId}`);
-//     //     remove(location);
-//     // });
-// } 
+}
