@@ -23,7 +23,7 @@
         <p class="message center">Chillax your identity <span class="strike">isn't</span> recorded.</p>
         <p class="message center" id="resp">Count: </p>
         <h2 class="greytexts" style="text-align: center;">Responses out in</h2>
-        <div class="tick" data-value="1234" data-did-init="setupFlip" id="flipclk" style="text-align: center;" >
+        <div class="tick" data-value="0" data-did-init="setupFlip" id="flipclk" style="text-align: center;" >
             <div data-repeat="true" aria-hidden="true">
             <span data-view="flip"></span>
             </div>
@@ -38,7 +38,7 @@
     <script src="./flipclock/flip.min.js"></script>
     <script>
     function setupFlip(tick) {
-    var countdownDate  = new Date("May 22, 2023 00:00:00").getTime();
+    var countdownDate  = new Date("May 21, 2023 00:00:00").getTime();
     var now = new Date().getTime();
     var dist = countdownDate - now;
     var sec = Math.floor(dist/1000);
