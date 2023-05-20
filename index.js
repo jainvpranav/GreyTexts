@@ -60,10 +60,10 @@ function appendShoppingList(inputValue) {
     let to = inputValue[1]['to'];
     let newEl = document.createElement("li");
     let newdiv = document.createElement("div");
-//     if(to!="")
-//     newdiv.textContent =`Dear ${to}, ${message}`;
-//     else 
-//     newdiv.textContent =`Gossip: ${message}`;
-//     newEl.appendChild(newdiv);
-//     shoppingListEl.append(newEl);
+    if(to!="")
+    newdiv.textContent =`Dear ${to}, ${message}`;
+    else 
+    newdiv.textContent =`Gossip: ${message}`;
+    newEl.appendChild(newdiv);
+    shoppingListEl.append(newEl);
 }
